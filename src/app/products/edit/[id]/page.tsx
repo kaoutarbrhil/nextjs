@@ -7,7 +7,7 @@ import { Product } from "@/app/types";
 
 export default function EditProduct() {
   const router = useRouter();
-  const { id } = useParams<{ id: string }>(); // Explicitly typing the 'id' param as string
+  const { id } = useParams<{ id: string }>(); 
   const [product, setProduct] = useState<Product>({ id: 0, name: "", price: "" });
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function EditProduct() {
       fetch(`/api/products`)
         .then((res) => res.json())
         .then((data) => {
-          const foundProduct = data.find((p: Product) => p.id === parseInt(id)); // Correct typing for 'p'
+          const foundProduct = data.find((p: Product) => p.id === parseInt(id)); 
           if (foundProduct) setProduct(foundProduct);
         });
     }
